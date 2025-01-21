@@ -2,16 +2,12 @@ const { useEffect, useState } = React;
 const { Subscription, interval } = rxjs;
 const { map } = rxjs.operators;
 
-const data$ = interval(755).pipe(
-  map(v => v.toString())
-);
-
-const App = () => {
+const App = ({ $ }) => {
   const [data, setData] = useState('0');
   useEffect(() => {
     const subscription = new Subscription();
 
-    const sub = data$.subscribe({
+    const sub = $.subscribe({
       next: v => setData(v),
       complete: () => console.log('Data stream complete'),
     });
@@ -30,4 +26,6 @@ const App = () => {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('app-1'));
+ReactDOM.render(<App $={interval(333).pipe(
+  map(v => v.toString())
+)} />, document.getElementById('app-1'));
