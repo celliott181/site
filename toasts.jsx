@@ -4,7 +4,7 @@ const { map } = rxjs.operators;
 
 const Toast = ({ children, level = "info", id }) => {
   return (
-    <div className={`alert alert-${level}`} key={`alert-${id}`} role="alert">
+    <div className={`alert alert-${level}`} role="alert">
       {children}
     </div>
   );
@@ -27,7 +27,7 @@ const App = ({ $ }) => {
   }, []);
 
   return <>
-    {data.map(v => <Toast id={v}>{v}</Toast>)}
+    {data.map(v => <Toast key={`alert-${id}`}>{v}</Toast>)}
   </>
 }
 
