@@ -17,7 +17,10 @@ const ToastContainer = ({ $ }) => {
     const subscription = new Subscription();
 
     const sub = $.subscribe({
-      next: v => setData([ ...data.slice(-5), v ]),
+      next: v => {
+        setData([ ...data.slice(-5), v ]);
+        setTimeout(() =>  setData(data.slice(1-length), 2000);
+      },
       complete: () => console.log('Data stream complete'),
     });
 
