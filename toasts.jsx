@@ -1,5 +1,5 @@
 const { useEffect, useState } = React;
-const { BehaviorSubject, Subscription, interval } = rxjs;
+const { Subject, Subscription, interval } = rxjs;
 const { map } = rxjs.operators;
 
 const Toast = ({ children, level = "info", id }) => {
@@ -31,7 +31,7 @@ const ToastContainer = ({ $ }) => {
   </>
 }
 
-const toast$ = new BehaviorSubject();
+const toast$ = new Subject();
 const toast = (msg) => toast$.next(msg);
 
 ReactDOM.render(<ToastContainer $={toast$} />, document.getElementById('toasts'));
