@@ -2,30 +2,22 @@ const { useEffect, useState } = React;
 const { Subscription, interval } = rxjs;
 const { map } = rxjs.operators;
 
-const App = ({ $ }) => {
+const App2 = () => {
   const [data, setData] = useState('0');
-  useEffect(() => {
-    const subscription = new Subscription();
-
-    const sub = $.subscribe({
-      next: v => toast(v),
-      complete: () => console.log('Data stream complete'),
-    });
-
-    subscription.add(sub);
-
-    return () => subscription.unsubscribe();
-  }, []);
-
+  const action = (form) => toast(form.get('msg'));
+  
   return (
     <div className="card-body">
       <h5 className="card-title">Counter</h5>
       <p className="card-text">Count: {data}</p>
       <a href="#" className="btn btn-primary" onClick={() => setData(Number(data) + 1)} >Do something</a>
+
+      <form action={action}>
+        <input type="text" placeholder="Write something" name="msg" />
+        <button type="submit">Toast!</button>
+      </form>
     </div>
   );
 }
 
-ReactDOM.render(<App $={interval(1000).pipe(
-  map(v => v.toString())
-)} />, document.getElementById('app-2'));
+ReactDOM.render(<App2 />, document.getElementById('app-2'));
