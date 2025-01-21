@@ -17,7 +17,7 @@ const App = ({ $ }) => {
     const subscription = new Subscription();
 
     const sub = $.subscribe({
-      next: v => setData(data.push(v).slice(-5)),
+      next: v => setData([ ...data.slice(-5), v ]),
       complete: () => console.log('Data stream complete'),
     });
 
