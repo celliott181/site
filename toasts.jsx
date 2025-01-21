@@ -2,7 +2,7 @@ const { useEffect, useState } = React;
 const { Subject, Subscription, interval } = rxjs;
 const { map } = rxjs.operators;
 
-const Toast = ({ children, level = "info", id }) => {
+const Toast = ({ children, level = "info" }) => {
   return (
     <div className={`alert alert-${level}`} role="alert">
       {children}
@@ -27,7 +27,7 @@ const ToastContainer = ({ $ }) => {
   }, []);
 
   return <>
-    {data.map(v => <Toast key={`alert-${id}`}>{v}</Toast>)}
+    {data.map(v => <Toast key={`alert-${v}`}>{v}</Toast>)}
   </>
 }
 
