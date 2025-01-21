@@ -21,7 +21,13 @@ const App = () => {
     return () => subscription.unsubscribe();
   }, []);
 
-  return <>{data}</>;
+  return (
+    <div class="card-body">
+      <h5 class="card-title">Counter</h5>
+      <p class="card-text">Count: {data}</p>
+      <a href="#" class="btn btn-primary" onClick={() => alert('yay')} >Do something</a>
+    </div>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
