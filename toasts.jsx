@@ -1,5 +1,5 @@
 const { useEffect, useState } = React;
-const { Subscription, interval } = rxjs;
+const { BehaviorSubject, Subscription, interval } = rxjs;
 const { map } = rxjs.operators;
 
 const Toast = ({ children, level = "info", id }) => {
