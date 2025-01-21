@@ -1,6 +1,7 @@
 const { useEffect, useState } = React;
 const { Subscription, interval } = rxjs;
 const { map } = rxjs.operators;
+const { toast } = Toast;
 
 const App = ({ $ }) => {
   const [data, setData] = useState('0');
@@ -8,7 +9,7 @@ const App = ({ $ }) => {
     const subscription = new Subscription();
 
     const sub = $.subscribe({
-      next: v => setData(v),
+      next: v => toast(v),
       complete: () => console.log('Data stream complete'),
     });
 
