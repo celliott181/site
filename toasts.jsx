@@ -31,6 +31,12 @@ const App = ({ $ }) => {
   </>
 }
 
-ReactDOM.render(<App $={interval(2000).pipe(
-  map(v => v.toString())
-)} />, document.getElementById('toasts'));
+const toast$ = BehaviorSubject();
+const toast = (msg) => toast$.next(msg);
+
+ReactDOM.render(<App $={toast$} />, document.getElementById('toasts'));
+
+Toast = {
+  toast
+};
+  
