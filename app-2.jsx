@@ -12,7 +12,7 @@ const App2 = () => {
       <p className="card-text">Count: {data}</p>
       <a href="#" className="btn btn-primary" onClick={() => setData(Number(data) + 1)} >Do something</a>
 
-      <form action={action}>
+      <form action={action} onSubmit={() => e.preventDefault()}>
         <input type="text" placeholder="Write something" name="msg" />
         <button type="submit">Toast!</button>
       </form>
