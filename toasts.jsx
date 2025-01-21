@@ -11,7 +11,7 @@ const Toast = ({ children, level = "info", key }) => {
 };
 
 const App = ({ $ }) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   
   useEffect(() => {
     const subscription = new Subscription();
@@ -27,7 +27,8 @@ const App = ({ $ }) => {
   }, []);
 
   return <>
-    {data.map(v => <Toast key={v}>v</Toast>)}
+{/*     {data.map(v => <Toast key={v}>v</Toast>)} */}
+    {data}
   </>
 }
 
