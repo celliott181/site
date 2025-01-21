@@ -1,5 +1,6 @@
 const { useEffect, useState } = React;
 const { Subscription, interval } = rxjs;
+const { map } = rxjs.operators;
 
 const data$ = interval(1000).pipe(
   map(v => v.toString())
