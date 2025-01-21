@@ -1,15 +1,11 @@
 const { useEffect, useState } = React;
 const { Subscription, interval } = rxjs;
 
-function data() {
-  const intervalInMs = 1000; // Emit data points every 1000ms (1 second)
-  return interval(intervalInMs);
-}
+const data$ = interval(1000);
 
 function App() {
   const [data, setData] = useState();
   useEffect(() => {
-    const data$ = data();
     const subscription = new Subscription();
 
     const sub = data$.subscribe({
