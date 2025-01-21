@@ -9,6 +9,7 @@ const App2 = () => {
     e.preventDefault();
     console.log(e)
     toast(data);
+  }
   
   return (
     <div className="card-body">
