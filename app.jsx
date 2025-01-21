@@ -1,10 +1,12 @@
 const { useEffect, useState } = React;
 const { Subscription, interval } = rxjs;
 
-const data$ = interval(1000);
+const data$ = interval(1000).pipe(
+  map(v => v.toString())
+);
 
-function App() {
-  const [data, setData] = useState();
+const App = () => {
+  const [data, setData] = useState('0');
   useEffect(() => {
     const subscription = new Subscription();
 
@@ -18,7 +20,7 @@ function App() {
     return () => subscription.unsubscribe();
   }, []);
 
-  return {data.toString()};
+  return <>{data}</>;
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
