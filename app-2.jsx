@@ -1,7 +1,6 @@
 const { useEffect, useState } = React;
 const { Subscription, interval } = rxjs;
 const { map } = rxjs.operators;
-const { toast } = toast;
 
 const App = ({ $ }) => {
   const [data, setData] = useState('0');
