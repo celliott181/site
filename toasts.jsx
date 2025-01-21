@@ -10,7 +10,7 @@ const Toast = ({ children, level = "info", id }) => {
   );
 };
 
-const App = ({ $ }) => {
+const ToastContainer = ({ $ }) => {
   const [data, setData] = useState([]);
   
   useEffect(() => {
@@ -34,9 +34,6 @@ const App = ({ $ }) => {
 const toast$ = BehaviorSubject();
 const toast = (msg) => toast$.next(msg);
 
-ReactDOM.render(<App $={toast$} />, document.getElementById('toasts'));
-
-Toast = {
-  toast
-};
+ReactDOM.render(<ToastContainer $={toast$} />, document.getElementById('toasts'));
+window.toast = (msg) => toast$.next(msg);
   
