@@ -18,12 +18,7 @@ function App() {
     return () => subscription.unsubscribe();
   }, []);
 
-  return (
-    <div>
-      <h1>App</h1>
-      {data.toString()}
-    </div>
-  );
+  return {data.toString()};
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
