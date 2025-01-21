@@ -38,4 +38,4 @@ const toast$ = new Subject();
 const toast = (msg) => toast$.next(msg);
 
 ReactDOM.render(<ToastContainer $={toast$} />, document.getElementById('toasts'));
-  
+window.toast = toast;
