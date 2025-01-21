@@ -17,7 +17,7 @@ const App = ({ $ }) => {
     const subscription = new Subscription();
 
     const sub = $.subscribe({
-      next: v => setData([ ...data.slice(-5), v ]),
+      next: v => setData(data.push(v).slice(-5)),
       complete: () => console.log('Data stream complete'),
     });
 
@@ -27,8 +27,7 @@ const App = ({ $ }) => {
   }, []);
 
   return <>
-{/*     {data.map(v => <Toast key={v}>v</Toast>)} */}
-    {data}
+    {data.map(v => <Toast key={v}>v</Toast>)}
   </>
 }
 
