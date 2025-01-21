@@ -31,9 +31,8 @@ const ToastContainer = ({ $ }) => {
   </>
 }
 
-const toast$ = BehaviorSubject();
+const toast$ = new BehaviorSubject();
 const toast = (msg) => toast$.next(msg);
 
 ReactDOM.render(<ToastContainer $={toast$} />, document.getElementById('toasts'));
-window.toast = (msg) => toast$.next(msg);
   
