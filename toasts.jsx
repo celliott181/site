@@ -27,7 +27,7 @@ const App = ({ $ }) => {
   }, []);
 
   return <>
-    {data.map(v => <Toast key={v}>v</Toast>)}
+    {data.map(v => <Toast key={v}>{v}</Toast>)}
   </>
 }
 
